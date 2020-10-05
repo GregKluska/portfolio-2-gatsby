@@ -9,6 +9,8 @@ const Wrapper = styled.div`
 
   display: flex;
 
+  z-index: 10;
+
   padding: 30px 0;
   margin: 0 65px;
 `;
