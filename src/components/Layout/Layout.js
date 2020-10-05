@@ -4,9 +4,13 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { Normalize } from 'styled-normalize';
 
 import theme from '~styles/theme';
-import Typography from '~styles/typography';
 import Navbar from '~components/Layout/Navbar';
 import Content from '~components/Layout/Content';
+import Menu from '../Menu/Menu';
+import Logo from '../Logo/Logo';
+import Background from '~util/background';
+
+import '~styles/font.css';
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -38,11 +42,14 @@ const Wrapper = styled.div`
 const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
-      <Typography />
       <Normalize />
       <GlobalStyles />
+      <Background />
       <Wrapper>
-        <Navbar />
+        <Navbar>
+          <Logo />
+          <Menu />
+        </Navbar>
         <Content>{children}</Content>
       </Wrapper>
     </ThemeProvider>
