@@ -6,8 +6,6 @@ import { Normalize } from 'styled-normalize';
 import theme from '~styles/theme';
 import Navbar from '~components/Layout/Navbar';
 import Content from '~components/Layout/Content';
-import Menu from '../Menu/Menu';
-import Logo from '../Logo/Logo';
 import Background from '~util/background';
 
 import '~styles/font.css';
@@ -46,10 +44,7 @@ const Layout = ({ children }) => {
       <GlobalStyles />
       <Background />
       <Wrapper>
-        <Navbar>
-          <Logo />
-          <Menu />
-        </Navbar>
+        <Navbar />
         <Content>{children}</Content>
       </Wrapper>
     </ThemeProvider>

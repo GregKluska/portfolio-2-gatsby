@@ -1,18 +1,45 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { up, down } from 'styled-breakpoints';
 
 import { Link } from 'gatsby';
 
 const Wrapper = styled.div`
-  width: auto;
+  width: 100%;
 
   flex-grow: 1;
 
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
 
-  margin-left: -20px;
-  margin-right: -20px;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background: #fff;
+  padding-top: 88px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #2b2e4d;
+
+  ${down('lg')} {
+    transition: transform 0.5s ease-in-out;
+  }
+
+  ${({ active }) => active === true && `transform: translateY(100%);`}
+
+  ${up('md')} {
+    width: auto;
+    position: initial;
+    flex-direction: row;
+    align-items: initial;
+    justify-content: flex-end;
+    border-bottom: 0;
+
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 0;
+  }
 `;
 
 const Item = styled(Link)`
@@ -31,15 +58,23 @@ const Item = styled(Link)`
   }
 `;
 
-const Menu = () => {
+const Menu = ({ active }) => {
   return (
-    <Wrapper>
+    <Wrapper active={active}>
       <Item to="/">Home</Item>
       <Item to="/about-me">About me</Item>
       <Item to="/portfolio">My Projects</Item>
       <Item to="/contact-me">Contact</Item>
     </Wrapper>
   );
+};
+
+Menu.defaultProps = {
+  active: false,
+};
+
+Menu.propTypes = {
+  active: PropTypes.bool,
 };
 
 export default Menu;

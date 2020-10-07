@@ -2,7 +2,13 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+
+  position: relative;
+  z-index: 3;
+`;
 
 const StyledLink = styled(Link)`
   font-size: 40px;
