@@ -28,6 +28,10 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 400;
   }
 
+  p{
+    font-size: 13px;
+  }
+
 `;
 
 const Wrapper = styled.div`
