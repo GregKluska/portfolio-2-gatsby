@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { Normalize } from 'styled-normalize';
+import { normalize } from 'styled-normalize';
 
 import theme from '~styles/theme';
 import Navbar from '~components/Layout/Navbar';
@@ -11,6 +11,8 @@ import Background from '~util/background';
 import '~styles/font.css';
 
 const GlobalStyles = createGlobalStyle`
+  ${normalize}
+
   html {
     box-sizing: border-box;
   }
@@ -40,7 +42,6 @@ const Wrapper = styled.div`
 const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
-      <Normalize />
       <GlobalStyles />
       <Background />
       <Wrapper>

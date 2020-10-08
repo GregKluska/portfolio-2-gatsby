@@ -1,15 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { up } from 'styled-breakpoints';
 
 const Wrapper = styled.div``;
 
 const HeroText = styled.h1`
   text-transform: uppercase;
-  font-size: 4rem;
+  font-size: 3rem;
+  line-height: 1.2em;
 
-  margin-top: 0.4em;
-  margin-bottom: 0.4em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+
+  text-align: center;
+
+  ${up('md')} {
+    font-size: 4rem;
+  }
 `;
 
 const Hero = ({ children }) => {

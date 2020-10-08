@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { up, down } from 'styled-breakpoints';
+import { up } from 'styled-breakpoints';
 
 import { Link } from 'gatsby';
 
@@ -19,11 +19,13 @@ const Wrapper = styled.div`
   left: 0;
   background: #fff;
   padding-top: 88px;
-  padding-bottom: 40px;
+  padding-bottom: 30px;
   border-bottom: 1px solid #2b2e4d;
 
-  ${down('lg')} {
-    transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+
+  ${up('md')} {
+    transition: initial;
   }
 
   ${({ active }) => active === true && `transform: translateY(100%);`}
@@ -39,6 +41,8 @@ const Wrapper = styled.div`
     margin-left: -20px;
     margin-right: -20px;
     padding: 0;
+
+    transform: initial;
   }
 `;
 
@@ -48,6 +52,14 @@ const Item = styled(Link)`
 
   color: ${({ theme }) => theme.colors.primary};
   text-decoration: none;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  ${up('md')} {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
   &:hover {
     font-weight: 700;

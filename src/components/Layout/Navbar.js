@@ -16,9 +16,9 @@ const Wrapper = styled.div`
 
   z-index: 10;
 
-  padding: 30px 20px;
+  padding: 30px 10px;
 
-  ${up('md')} {
+  ${up('xl')} {
     padding: 30px 65px;
   }
 `;
