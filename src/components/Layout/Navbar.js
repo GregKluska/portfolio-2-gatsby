@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 
   padding: 30px 10px;
 
-  ${up('xl')} {
+  ${up('lg')} {
     padding: 30px 65px;
   }
 `;

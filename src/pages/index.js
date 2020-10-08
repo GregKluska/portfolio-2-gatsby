@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 
   transform: translateY(-100px);
 
-  padding: 4rem;
+  padding: 3rem;
 `;
 
 const StyledTypist = styled(Typist)`

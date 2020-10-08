@@ -12,7 +12,7 @@ export default {
     sm: '540px',
     md: '720px',
     lg: '960px',
-    xl: '1140px',
-    xxl: '1140px',
+    xl: '960px',
+    xxl: '960px',
   },
 };
