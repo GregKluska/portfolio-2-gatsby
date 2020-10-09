@@ -5,10 +5,10 @@ import { normalize } from 'styled-normalize';
 
 import theme from '~styles/theme';
 import Navbar from '~components/Layout/Navbar';
-import Content from '~components/Layout/Content';
 import Background from '~util/background';
 
 import '~styles/font.css';
+import Footer from './Footer';
 
 const GlobalStyles = createGlobalStyle`
   ${normalize}
@@ -20,7 +20,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: inherit;
   }
   body {
-    font-family: 'Roboto Mono';
+    font-family: 'Rubik';
     color: ${theme.colors.primary};
     background: ${theme.colors.background};
 
@@ -40,17 +40,17 @@ const Wrapper = styled.div`
 
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 `;
 
 const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Background />
       <Wrapper>
+        <Background />
         <Navbar />
-        <Content>{children}</Content>
+        {children}
+        <Footer />
       </Wrapper>
     </ThemeProvider>
   );

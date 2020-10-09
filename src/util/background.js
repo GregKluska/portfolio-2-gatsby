@@ -35,7 +35,7 @@ const FadeInAnim = keyframes`
 `;
 
 const StarWrapper = styled.div`
-  position: absolute;
+  position: fixed;
 
   z-index: -1;
 
