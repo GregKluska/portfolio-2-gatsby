@@ -8,17 +8,16 @@ import Hero from '~components/Hero/Hero';
 
 const Wrapper = styled.div`
   width: 100%;
+  height: 100%;
+
+  flex-grow: 1;
+
+  padding: 0 3rem 5rem 3rem;
 
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-
   align-items: center;
   justify-content: center;
-
-  transform: translateY(-100px);
-
-  padding: 3rem;
 `;
 
 const StyledTypist = styled(Typist)`

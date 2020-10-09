@@ -6,9 +6,12 @@ import Logo from '~components/Logo/Logo';
 import Menu from '~components/Menu/Menu';
 
 import Hamburger from '~components/Menu/Hamburger';
+import Background from '~util/background';
 
 const Wrapper = styled.div`
-  position: sticky;
+  width: 100%;
+
+  position: fixed;
   top: 0;
   left: 0;
 
@@ -18,7 +21,10 @@ const Wrapper = styled.div`
 
   padding: 30px 10px;
 
+  background: ${({ theme }) => theme.colors.background};
+
   ${up('lg')} {
+    overflow: hidden;
     padding: 30px 65px;
   }
 `;
@@ -29,7 +35,7 @@ const HamburgerBtn = styled(Hamburger)`
   }
 `;
 
-const Placeholder = styled.div`
+const FlexGrow = styled.div`
   display: flex;
   flex-grow: 1;
 
@@ -38,16 +44,25 @@ const Placeholder = styled.div`
   }
 `;
 
+const Placeholder = styled.div`
+  height: 90px;
+  width: 100%;
+  flex-shrink: 0;
+`;
+
 const Navbar = () => {
   const [menuState, setMenuState] = useState(false);
 
   return (
-    <Wrapper>
-      <Logo />
-      <Menu active={menuState} />
+    <>
+      <Wrapper>
+        <Logo />
+        <Menu active={menuState} />
+        <FlexGrow />
+        <HamburgerBtn onClick={() => setMenuState(!menuState)} active={menuState} />
+      </Wrapper>
       <Placeholder />
-      <HamburgerBtn onClick={() => setMenuState(!menuState)} active={menuState} />
-    </Wrapper>
+    </>
   );
 };
 

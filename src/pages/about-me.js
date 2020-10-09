@@ -126,6 +126,96 @@ const IndexPage = () => {
           </Col>
         </Row>
       </Container>
+      <Container>
+        <Row>
+          <Col>
+            <SectionTitle>About me</SectionTitle>
+            <AboutMeSection>
+              <AvatarWrapper>
+                <Avatar />
+              </AvatarWrapper>
+              <ContentWrapper>
+                <Paragraph>
+                  Hello! I’m Greg Kluska. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Autem tenetur ratione quod. Lorem ipsum dolor sit amet consectetur adipisicing
+                  elit. Autem tenetur ratione quod
+                </Paragraph>
+                <Row className="personal-data">
+                  <Info md={6} lg={4}>
+                    <Label>Age</Label>
+                    24
+                  </Info>
+                  <Info md={6} lg={8}>
+                    <Label>Residence</Label>
+                    UK
+                  </Info>
+                  <Info md={6} lg={4}>
+                    <Label>Freelance</Label>
+                    Available
+                  </Info>
+                  <Info md={6} lg={8}>
+                    <Label>Address</Label>
+                    Manchester, UK
+                  </Info>
+                  <Info md={6} lg={4}>
+                    <Label>Phone</Label>
+                    07874 655565
+                  </Info>
+                  <Info md={6} lg={8}>
+                    <Label>Email</Label>
+                    kluskagreg@gmail.com
+                  </Info>
+                </Row>
+              </ContentWrapper>
+            </AboutMeSection>
+          </Col>
+        </Row>
+      </Container>
+      <Container>
+        <Row>
+          <Col>
+            <SectionTitle>About me</SectionTitle>
+            <AboutMeSection>
+              <AvatarWrapper>
+                <Avatar />
+              </AvatarWrapper>
+              <ContentWrapper>
+                <Paragraph>
+                  Hello! I’m Greg Kluska. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Autem tenetur ratione quod. Lorem ipsum dolor sit amet consectetur adipisicing
+                  elit. Autem tenetur ratione quod
+                </Paragraph>
+                <Row className="personal-data">
+                  <Info md={6} lg={4}>
+                    <Label>Age</Label>
+                    24
+                  </Info>
+                  <Info md={6} lg={8}>
+                    <Label>Residence</Label>
+                    UK
+                  </Info>
+                  <Info md={6} lg={4}>
+                    <Label>Freelance</Label>
+                    Available
+                  </Info>
+                  <Info md={6} lg={8}>
+                    <Label>Address</Label>
+                    Manchester, UK
+                  </Info>
+                  <Info md={6} lg={4}>
+                    <Label>Phone</Label>
+                    07874 655565
+                  </Info>
+                  <Info md={6} lg={8}>
+                    <Label>Email</Label>
+                    kluskagreg@gmail.com
+                  </Info>
+                </Row>
+              </ContentWrapper>
+            </AboutMeSection>
+          </Col>
+        </Row>
+      </Container>
     </Layout>
   );
 };

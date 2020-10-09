@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   position: absolute;
   bottom: 100%;
   left: 0;
-  background: #fff;
+  background: ${({ theme }) => theme.colors.background};
   padding-top: 88px;
   padding-bottom: 30px;
   border-bottom: 1px solid #2b2e4d;
@@ -25,6 +25,7 @@ const Wrapper = styled.div`
   transition: transform 0.5s ease-in-out;
 
   ${up('md')} {
+    background: transparent;
     transition: initial;
   }
 

@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 `;
 
 const TextBar = styled.div`
-  top: 16px;
+  top: 22px;
 
   &:before {
     content: 'BACK';
@@ -46,7 +46,7 @@ const TextBar = styled.div`
 const Label = styled.div`
   position: relative;
   display: block;
-  height: 18px;
+  height: 24px;
   cursor: pointer;
 
   &:before,
@@ -68,20 +68,20 @@ const Label = styled.div`
   }
 
   &:after {
-    top: 8px;
+    top: 11px;
   }
 `;
 
 const Button = styled.div`
-  width: 30px;
+  width: 40px;
   overflow: hidden;
 
   &.active {
     ${Label}:before {
-      left: -30px;
+      left: -40px;
     }
     ${Label}:after {
-      left: 30px;
+      left: 40px;
     }
     ${TextBar}:before {
       animation: ${moveUpThenDown} 0.8s ease 0.2s forwards,
