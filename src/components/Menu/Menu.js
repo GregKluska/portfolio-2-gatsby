@@ -64,6 +64,10 @@ const Item = styled(Link)`
 
   &:hover {
     font-weight: 700;
+    ${up('md')} {
+      font-weight: 400;
+      text-shadow: 0px 0px 1px ${({ theme }) => theme.colors.primary};
+    }
   }
 
   &[aria-current='page'] {
