@@ -29,6 +29,18 @@ const HeroWrapper = styled.div`
   justify-content: center;
 `;
 
+const Anchor = styled.div`
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+
+  visibility: hidden;
+
+  top: -10vh;
+  left: 0;
+`;
+
 const StyledTypist = styled(Typist)`
   font-size: 14px;
   text-align: center;
@@ -69,7 +81,40 @@ const IndexPage = () => {
           ])}
         </StyledTypist>
       </HeroWrapper>
-      <Container id="about-me">
+      <Container>
+        <Anchor id="about-me" />
+        <Row section>
+          <Col>
+            <AboutMe />
+          </Col>
+        </Row>
+        <Row section>
+          <Col lg={6}>
+            <Experience />
+          </Col>
+          <Col lg={6}>
+            <Education />
+          </Col>
+        </Row>
+      </Container>
+      <Container>
+        <Anchor id="abouts-me" />
+        <Row section>
+          <Col>
+            <AboutMe />
+          </Col>
+        </Row>
+        <Row section>
+          <Col lg={6}>
+            <Experience />
+          </Col>
+          <Col lg={6}>
+            <Education />
+          </Col>
+        </Row>
+      </Container>
+      <Container>
+        <Anchor id="aboute-me" />
         <Row section>
           <Col>
             <AboutMe />

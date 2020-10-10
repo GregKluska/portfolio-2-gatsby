@@ -9,7 +9,7 @@ import Avatar from '~components/Content/Avatar';
 
 import * as mixins from '~styles/mixins';
 
-const AboutMeSection = styled.div`
+const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   ${up('sm')} {
@@ -104,7 +104,7 @@ const AboutMe = () => {
   return (
     <>
       <SectionTitle>About me</SectionTitle>
-      <AboutMeSection>
+      <SectionWrapper>
         <AvatarWrapper>
           <Avatar />
         </AvatarWrapper>
@@ -123,7 +123,7 @@ const AboutMe = () => {
             ))}
           </Row>
         </ContentWrapper>
-      </AboutMeSection>
+      </SectionWrapper>
     </>
   );
 };
