@@ -6,7 +6,6 @@ import Logo from '~components/Logo/Logo';
 import Menu from '~components/Menu/Menu';
 
 import Hamburger from '~components/Menu/Hamburger';
-import Background from '~util/background';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -57,7 +56,7 @@ const Navbar = () => {
     <>
       <Wrapper>
         <Logo />
-        <Menu active={menuState} />
+        <Menu active={menuState} onMenuItemClickHandler={setMenuState} />
         <FlexGrow />
         <HamburgerBtn onClick={() => setMenuState(!menuState)} active={menuState} />
       </Wrapper>

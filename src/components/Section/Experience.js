@@ -7,6 +7,8 @@ import TimelineItem from '~components/Content/TimelineItem';
 const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+  padding-top: 15px;
 `;
 
 const Experience = () => {

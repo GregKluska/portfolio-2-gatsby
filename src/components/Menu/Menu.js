@@ -75,19 +75,23 @@ const Item = styled(Link)`
   ${StyledItem}
 `;
 
-const Menu = ({ active }) => {
+const Menu = ({ active, onMenuItemClickHandler }) => {
   return (
     <Wrapper active={active}>
-      <Item to="/" title="Home">
+      <Item to="/" title="Home" onClick={() => onMenuItemClickHandler(false)}>
         Home
       </Item>
-      <Item to="/#about-me" title="Go to about me section!">
+      <Item
+        to="/#about-me"
+        title="Go to about me section!"
+        onClick={() => onMenuItemClickHandler(false)}
+      >
         About me
       </Item>
-      <Item to="/portfolio" title="See my work">
+      <Item to="/portfolio" title="See my work" onClick={() => onMenuItemClickHandler(false)}>
         My Projects
       </Item>
-      <Item to="/contact-me" title="Contact me!">
+      <Item to="/contact-me" title="Contact me!" onClick={() => onMenuItemClickHandler(false)}>
         Contact
       </Item>
     </Wrapper>
@@ -96,9 +100,11 @@ const Menu = ({ active }) => {
 
 Menu.defaultProps = {
   active: false,
+  onMenuItemClickHandler: undefined,
 };
 
 Menu.propTypes = {
+  onMenuItemClickHandler: PropTypes.func,
   active: PropTypes.bool,
 };
 

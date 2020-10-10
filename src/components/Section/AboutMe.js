@@ -73,6 +73,23 @@ const Row = styled.div`
   }
 `;
 
+const Button = styled.a`
+  background: ${({ theme }) => theme.colors.primary};
+  color: white;
+
+  padding: 0px 15px;
+  margin-top: 20px;
+
+  display: inline-block;
+  text-decoration: none;
+`;
+const ButtonWrapper = styled.div`
+  text-align: center;
+  ${up('sm')} {
+    text-align: initial;
+  }
+`;
+
 const AboutMe = () => {
   const personalData = [
     {
@@ -121,6 +138,15 @@ const AboutMe = () => {
                 {value}
               </Info>
             ))}
+          </Row>
+          <Row>
+            <Col>
+              <ButtonWrapper>
+                <Button href="#" title="Download my CV!">
+                  Download CV
+                </Button>
+              </ButtonWrapper>
+            </Col>
           </Row>
         </ContentWrapper>
       </SectionWrapper>

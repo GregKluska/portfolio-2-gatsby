@@ -11,6 +11,7 @@ import Hero from '~components/Hero/Hero';
 import AboutMe from '~components/Section/AboutMe';
 import Experience from '~components/Section/Experience';
 import Education from '~components/Section/Education';
+import MySkills from '~components/Section/MySkills';
 
 import * as mixins from '~styles/mixins';
 
@@ -96,36 +97,9 @@ const IndexPage = () => {
             <Education />
           </Col>
         </Row>
-      </Container>
-      <Container>
-        <Anchor id="abouts-me" />
         <Row section>
           <Col>
-            <AboutMe />
-          </Col>
-        </Row>
-        <Row section>
-          <Col lg={6}>
-            <Experience />
-          </Col>
-          <Col lg={6}>
-            <Education />
-          </Col>
-        </Row>
-      </Container>
-      <Container>
-        <Anchor id="aboute-me" />
-        <Row section>
-          <Col>
-            <AboutMe />
-          </Col>
-        </Row>
-        <Row section>
-          <Col lg={6}>
-            <Experience />
-          </Col>
-          <Col lg={6}>
-            <Education />
+            <MySkills />
           </Col>
         </Row>
       </Container>
