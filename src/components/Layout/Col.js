@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -23,12 +24,32 @@ const Col = styled.div`
   ${up('xxl')} {
     ${({ xxl }) => typeof xxl !== 'undefined' && mixins.makeCol(xxl, 12)}
   }
+
+  ${({ flexVCenter }) => {
+    if (typeof flexVCenter !== 'undefined' && flexVCenter === true) {
+      return `
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+      `;
+    }
+    return null;
+  }}
 `;
 
-const Column = ({ className, xs, sm, md, lg, xl, xxl, children, ...props }) => {
+const Column = ({ className, xs, sm, md, lg, xl, xxl, flexVCenter, children, ...props }) => {
   return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    <Col className={className} xs={xs} sm={sm} md={md} lg={lg} xl={xl} xxl={xxl} {...props}>
+    <Col
+      className={className}
+      xs={xs}
+      sm={sm}
+      md={md}
+      lg={lg}
+      xl={xl}
+      xxl={xxl}
+      flexVCenter={flexVCenter}
+      {...props}
+    >
       {children}
     </Col>
   );
@@ -42,6 +63,7 @@ Column.defaultProps = {
   lg: undefined,
   xl: undefined,
   xxl: undefined,
+  flexVCenter: false,
 };
 
 Column.propTypes = {
@@ -52,6 +74,7 @@ Column.propTypes = {
   lg: PropTypes.number,
   xl: PropTypes.number,
   xxl: PropTypes.number,
+  flexVCenter: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
 

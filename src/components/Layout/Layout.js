@@ -16,6 +16,10 @@ const GlobalStyles = createGlobalStyle`
   html {
     box-sizing: border-box;
   }
+  html,
+  body {
+    scroll-behavior: smooth;
+  }
   *, *:before, *:after {
     box-sizing: inherit;
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { up } from 'styled-breakpoints';
 
 import { Link } from 'gatsby';
@@ -47,7 +47,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Item = styled(Link)`
+const StyledItem = css`
   padding-left: 20px;
   padding-right: 20px;
 
@@ -69,19 +69,27 @@ const Item = styled(Link)`
       text-shadow: 0px 0px 1px ${({ theme }) => theme.colors.primary};
     }
   }
+`;
 
-  &[aria-current='page'] {
-    text-decoration: underline;
-  }
+const Item = styled(Link)`
+  ${StyledItem}
 `;
 
 const Menu = ({ active }) => {
   return (
     <Wrapper active={active}>
-      <Item to="/">Home</Item>
-      <Item to="/about-me">About me</Item>
-      <Item to="/portfolio">My Projects</Item>
-      <Item to="/contact-me">Contact</Item>
+      <Item to="/" title="Home">
+        Home
+      </Item>
+      <Item to="/#about-me" title="Go to about me section!">
+        About me
+      </Item>
+      <Item to="/portfolio" title="See my work">
+        My Projects
+      </Item>
+      <Item to="/contact-me" title="Contact me!">
+        Contact
+      </Item>
     </Wrapper>
   );
 };
