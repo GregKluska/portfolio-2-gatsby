@@ -14,11 +14,13 @@ const SectionWrapper = styled.div`
 const Education = () => {
   const educationData = [
     {
+      id: 1,
       label: '2016 - 2019',
       heading: 'Coventry University - United Kingdom',
       content: 'Computer Science, BSc (Hons)',
     },
     {
+      id: 2,
       label: '2012 - 2016',
       heading: 'Technical High School for Computer Science - Poland',
       content: 'Certificate of competence in the profession of an IT technician, ref. 351203',
@@ -30,7 +32,12 @@ const Education = () => {
       <SectionTitle>Education</SectionTitle>
       <SectionWrapper>
         {educationData.map((item) => (
-          <TimelineItem label={item.label} heading={item.heading} content={item.content} />
+          <TimelineItem
+            key={item.id}
+            label={item.label}
+            heading={item.heading}
+            content={item.content}
+          />
         ))}
       </SectionWrapper>
     </>

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
@@ -11,11 +12,16 @@ const ImageWrapper = styled.div`
   overflow: hidden;
 `;
 
-const Avatar = () => {
-  const image = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "unsplash_avatar.jpg" }) {
-        childImageSharp {
+const Avatar = ({ fileName }) => {
+  const imageQuery = useStaticQuery(graphql`
+    query HeaderQuery {
+      allImageSharp {
+        nodes {
+          parent {
+            ... on File {
+              name
+            }
+          }
           fluid(maxHeight: 600, maxWidth: 600) {
             ...GatsbyImageSharpFluid
           }
@@ -23,12 +29,29 @@ const Avatar = () => {
       }
     }
   `);
+  let image = imageQuery.allImageSharp.nodes.filter((node) => {
+    return node.parent.name === fileName;
+  });
+
+  if (image.length < 1) {
+    image = imageQuery.allImageSharp.nodes.filter((node) => {
+      return node.parent.name === 'unsplash_avatar';
+    });
+  }
 
   return (
     <ImageWrapper>
-      <Img fluid={image.file.childImageSharp.fluid} />
+      <Img fluid={image[0].fluid} />
     </ImageWrapper>
   );
+};
+
+Avatar.defaultProps = {
+  fileName: null,
+};
+
+Avatar.propTypes = {
+  fileName: PropTypes.string,
 };
 
 export default Avatar;

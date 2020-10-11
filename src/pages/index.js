@@ -12,6 +12,7 @@ import AboutMe from '~components/Section/AboutMe';
 import Experience from '~components/Section/Experience';
 import Education from '~components/Section/Education';
 import MySkills from '~components/Section/MySkills';
+import Testimonials from '~components/Section/Testimonials';
 
 import * as mixins from '~styles/mixins';
 
@@ -38,8 +39,12 @@ const Anchor = styled.div`
 
   visibility: hidden;
 
-  top: -10vh;
+  top: -5vh;
   left: 0;
+
+  ${up('md')} {
+    top: -10vh;
+  }
 `;
 
 const StyledTypist = styled(Typist)`
@@ -100,6 +105,11 @@ const IndexPage = () => {
         <Row section>
           <Col>
             <MySkills />
+          </Col>
+        </Row>
+        <Row section>
+          <Col>
+            <Testimonials />
           </Col>
         </Row>
       </Container>

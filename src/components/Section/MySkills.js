@@ -30,24 +30,24 @@ const Skill = styled.span`
 
 const MySkills = () => {
   const knowledgeData = [
-    'Website hosting',
-    'Create logo design',
-    'Modern and mobile-ready',
-    'Graphics and animations',
-    'iOS and android apps',
-    'Design for print',
-    'Advertising services include',
-    'Search engine marketing',
+    { id: 1, value: 'Website hosting' },
+    { id: 2, value: 'Create logo design' },
+    { id: 3, value: 'Modern and mobile-ready' },
+    { id: 4, value: 'Graphics and animations' },
+    { id: 5, value: 'iOS and android apps' },
+    { id: 6, value: 'Design for print' },
+    { id: 7, value: 'Advertising services include' },
+    { id: 8, value: 'Search engine marketing' },
   ];
 
   return (
     <>
       <SectionTitle>Knowledge</SectionTitle>
       <SectionWrapper>
-        {knowledgeData.map((value) => (
-          <SkillWrapper>
+        {knowledgeData.map((item) => (
+          <SkillWrapper key={item.id}>
             <FontAwesomeIcon icon={faCheck} />
-            <Skill>{value}</Skill>
+            <Skill>{item.value}</Skill>
           </SkillWrapper>
         ))}
       </SectionWrapper>
