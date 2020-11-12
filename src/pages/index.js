@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Typist from 'react-typist';
 import { up } from 'styled-breakpoints';
 
-import Layout from '~components/Layout/Layout';
 import Container from '~components/Layout/Container';
 import Col from '~components/Layout/Col';
 
@@ -69,7 +68,7 @@ const IndexPage = () => {
   const [typistIndex, setTypistIndex] = useState(0);
 
   return (
-    <Layout>
+    <>
       <HeroWrapper id="hero">
         <Hero>I&apos;m Greg Kluska</Hero>
         <StyledTypist
@@ -113,7 +112,7 @@ const IndexPage = () => {
           </Col>
         </Row>
       </Container>
-    </Layout>
+    </>
   );
 };
 

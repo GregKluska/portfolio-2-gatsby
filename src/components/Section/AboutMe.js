@@ -6,6 +6,7 @@ import Col from '~components/Layout/Col';
 
 import SectionTitle from '~components/Content/SectionTitle';
 import Avatar from '~components/Content/Avatar';
+import Button from '~components/Content/Button';
 
 import * as mixins from '~styles/mixins';
 
@@ -73,16 +74,6 @@ const Row = styled.div`
   }
 `;
 
-const Button = styled.a`
-  background: ${({ theme }) => theme.colors.primary};
-  color: white;
-
-  padding: 0px 15px;
-  margin-top: 20px;
-
-  display: inline-block;
-  text-decoration: none;
-`;
 const ButtonWrapper = styled.div`
   text-align: center;
   ${up('sm')} {
