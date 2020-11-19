@@ -11,21 +11,47 @@ const SectionWrapper = styled.div`
   ${mixins.makeRow()}
 `;
 
-const Projects = ({ title }) => {
+const Projects = ({ title, projects }) => {
   return (
     <>
       <SectionTitle>{title}</SectionTitle>
       <SectionWrapper>
-        <Project />
-        <Project />
-        <Project />
+        {projects !== null &&
+          projects.map((project) => <Project data={project} key={project.id} />)}
       </SectionWrapper>
     </>
   );
 };
 
+Projects.defaultProps = {
+  projects: null,
+};
+
 Projects.propTypes = {
   title: PropTypes.string.isRequired,
+  projects: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      shortDescription: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      links: PropTypes.arrayOf(
+        PropTypes.shape({
+          url: PropTypes.string,
+          label: PropTypes.string,
+          alt: PropTypes.string,
+          title: PropTypes.string,
+        })
+      ),
+      tags: PropTypes.arrayOf(
+        PropTypes.shape({
+          label: PropTypes.string,
+          url: PropTypes.string,
+        })
+      ),
+      image: PropTypes.string,
+    })
+  ),
 };
 
 export default Projects;

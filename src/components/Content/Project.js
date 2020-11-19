@@ -43,6 +43,7 @@ const ImageWrapper = styled.div`
   ${up('lg')} {
     height: 138px;
   }
+  cursor: pointer;
 `;
 
 const Image = styled(Img)`
@@ -57,10 +58,21 @@ const Image = styled(Img)`
 
 const ContentWrapper = styled.div`
   padding: 5px;
+  min-height: 165px;
+
+  display: flex;
+  flex-direction: column;
 `;
-const Title = styled.div``;
+const Title = styled.h3`
+  display: block;
+
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+`;
 const Excerpt = styled.div`
   font-size: 13px;
+
+  flex-grow: 1;
 `;
 
 const Links = styled.div`
@@ -77,13 +89,21 @@ const Links = styled.div`
   }
 `;
 
-const Project = ({ projectName }) => {
+const Project = ({ data }) => {
+  if (typeof data === 'undefined' || data === null) {
+    return null;
+  }
   const { dispatch } = useContext(PortfolioContext);
 
-  const placeholderImage = useStaticQuery(graphql`
-    query ProjectPlaceholder {
-      file(relativePath: { eq: "project_placeholder.jpg" }) {
-        childImageSharp {
+  const featuredImages = useStaticQuery(graphql`
+    query ProjectImage {
+      allImageSharp {
+        nodes {
+          parent {
+            ... on File {
+              name
+            }
+          }
           fluid(maxWidth: 540) {
             ...GatsbyImageSharpFluid
           }
@@ -92,35 +112,47 @@ const Project = ({ projectName }) => {
     }
   `);
 
+  let image = featuredImages.allImageSharp.nodes.filter((node) => {
+    return node.parent.name === data.image;
+  });
+
+  if (image.length < 1) {
+    image = featuredImages.allImageSharp.nodes.filter((node) => {
+      return node.parent.name === 'project_placeholder';
+    });
+  }
+
   return (
     <Wrapper md={6} lg={4}>
       <Card>
-        <ImageWrapper>
-          <Image fluid={placeholderImage.file.childImageSharp.fluid} />
+        <ImageWrapper
+          onClick={() => {
+            dispatch({ type: 'openDetails', project: data });
+          }}
+        >
+          <Image fluid={image[0].fluid} />
         </ImageWrapper>
         <ContentWrapper>
-          <Title>{projectName}</Title>
-          <Excerpt>This is a short description of a project</Excerpt>
+          <Title>{data.name}</Title>
+          <Excerpt>{data.shortDescription}</Excerpt>
           <Links>
             <div className="row">
               <div className="buttonWrapper">
                 <CustomButton
                   onClick={() => {
-                    dispatch({ type: 'openDetails' });
+                    dispatch({ type: 'openDetails', project: data });
                   }}
                 >
                   READ MORE
                 </CustomButton>
               </div>
-              <div className="buttonWrapper">
-                <Button
-                  alt="Github repository"
-                  title="Link to Github Repository"
-                  href="https://github.com"
-                >
-                  GITHUB
-                </Button>
-              </div>
+              {data.links.map((link) => (
+                <div key={link.url} className="buttonWrapper">
+                  <Button alt={link.alt} target="_blank" title={link.title} href={link.url}>
+                    {link.label}
+                  </Button>
+                </div>
+              ))}
             </div>
           </Links>
         </ContentWrapper>
@@ -130,11 +162,31 @@ const Project = ({ projectName }) => {
 };
 
 Project.defaultProps = {
-  projectName: 'Project name',
+  data: null,
 };
 
 Project.propTypes = {
-  projectName: PropTypes.string,
+  data: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    shortDescription: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    links: PropTypes.arrayOf(
+      PropTypes.shape({
+        url: PropTypes.string,
+        label: PropTypes.string,
+        alt: PropTypes.string,
+        title: PropTypes.string,
+      })
+    ),
+    tags: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string,
+        url: PropTypes.string,
+      })
+    ),
+    image: PropTypes.string,
+  }),
 };
 
 export default Project;

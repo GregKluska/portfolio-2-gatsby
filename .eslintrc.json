@@ -12,7 +12,8 @@
         ["~src", "./src/src"],
         ["~styles", "./src/styles"],
         ["~util", "./src/util"],
-        ["~contexts", "./src/contexts"]
+        ["~contexts", "./src/contexts"],
+        ["~data", "./src/data"]
       ]
     }
   }

@@ -10,6 +10,8 @@ import Modal from '~components/Content/Modal';
 
 import PortfolioContext from '~contexts/PortfolioContext';
 
+import { androidProjects, webProjects } from '~data/projects';
+
 const Row = styled.div`
   ${mixins.makeRow()}
 
@@ -18,6 +20,7 @@ const Row = styled.div`
 
 const initialState = {
   modal: false,
+  currentProject: null,
 };
 
 const reducer = (state, action) => {
@@ -26,6 +29,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         modal: true,
+        currentProject: action.project,
       };
     }
     case 'closeDetails': {
@@ -49,12 +53,12 @@ const PortfolioPage = () => {
         <Container>
           <Row section>
             <Col>
-              <Projects title="Android Projects" />
+              <Projects title="Android Projects" projects={androidProjects} />
             </Col>
           </Row>
           <Row section>
             <Col>
-              <Projects title="Web Projects" />
+              <Projects title="Web Projects" projects={webProjects} />
             </Col>
           </Row>
         </Container>

@@ -40,6 +40,7 @@ module.exports = {
           '~styles': 'src/styles',
           '~util': 'src/util',
           '~contexts': 'src/contexts',
+          '~data': 'src/data',
         },
         extensions: ['js'],
       },
