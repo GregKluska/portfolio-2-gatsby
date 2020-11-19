@@ -39,6 +39,7 @@ module.exports = {
           '~components': 'src/components',
           '~styles': 'src/styles',
           '~util': 'src/util',
+          '~contexts': 'src/contexts',
         },
         extensions: ['js'],
       },

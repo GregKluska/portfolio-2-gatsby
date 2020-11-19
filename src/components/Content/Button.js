@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const Button = styled.a`
+const ButtonCss = css`
   background: ${({ theme }) => theme.colors.primary};
   color: white;
 
@@ -13,10 +13,24 @@ const Button = styled.a`
 
   display: inline-block;
   text-decoration: none;
+
+  cursor: pointer;
 `;
 
-const ButtonComponent = ({ children, ...props }) => {
+const ButtonLink = styled.a`
+  ${ButtonCss}
+`;
+
+const Button = styled.span`
+  ${ButtonCss}
+`;
+
+export const CustomButton = ({ children, ...props }) => {
   return <Button {...props}>{children}</Button>;
+};
+
+const ButtonComponent = ({ children, ...props }) => {
+  return <ButtonLink {...props}>{children}</ButtonLink>;
 };
 
 export default ButtonComponent;

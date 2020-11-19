@@ -11,7 +11,8 @@
         ["~components", "./src/components"],
         ["~src", "./src/src"],
         ["~styles", "./src/styles"],
-        ["~util", "./src/util"]
+        ["~util", "./src/util"],
+        ["~contexts", "./src/contexts"]
       ]
     }
   }

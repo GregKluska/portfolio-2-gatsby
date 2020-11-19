@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
@@ -6,7 +6,9 @@ import { up } from 'styled-breakpoints';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import Col from '~components/Layout/Col';
-import Button from '~components/Content/Button';
+import Button, { CustomButton } from '~components/Content/Button';
+
+import PortfolioContext from '~contexts/PortfolioContext';
 
 const Wrapper = styled(Col)`
   padding-top: 5px;
@@ -76,6 +78,8 @@ const Links = styled.div`
 `;
 
 const Project = ({ projectName }) => {
+  const { dispatch } = useContext(PortfolioContext);
+
   const placeholderImage = useStaticQuery(graphql`
     query ProjectPlaceholder {
       file(relativePath: { eq: "project_placeholder.jpg" }) {
@@ -99,6 +103,15 @@ const Project = ({ projectName }) => {
           <Excerpt>This is a short description of a project</Excerpt>
           <Links>
             <div className="row">
+              <div className="buttonWrapper">
+                <CustomButton
+                  onClick={() => {
+                    dispatch({ type: 'openDetails' });
+                  }}
+                >
+                  READ MORE
+                </CustomButton>
+              </div>
               <div className="buttonWrapper">
                 <Button
                   alt="Github repository"
