@@ -44,6 +44,36 @@ export const androidProjects = [
     ],
     image: 'project_placeholder',
   },
+  {
+    id: 4,
+    name: 'Authentication',
+    shortDescription: 'Various implementations authentication',
+    description: 'Various implementations authentication',
+    links: [
+      {
+        label: 'GITHUB',
+        url: 'https://github.com/GregKluska/RecyclerViewImplementation',
+        title: 'Link to the website',
+        alt: 'CCMedia website',
+      },
+    ],
+    image: 'project_placeholder',
+  },
+  {
+    id: 5,
+    name: 'Authentication',
+    shortDescription: 'Various implementations authentication',
+    description: 'Various implementations authentication',
+    links: [
+      {
+        label: 'GITHUB',
+        url: 'https://github.com/GregKluska/RecyclerViewImplementation',
+        title: 'Link to the website',
+        alt: 'CCMedia website',
+      },
+    ],
+    image: 'project_placeholder',
+  },
 ];
 
 export const webProjects = [
@@ -99,6 +129,21 @@ export const webProjects = [
   },
   {
     id: 3,
+    name: 'Personal portfolio',
+    shortDescription: 'Various implementations authentication',
+    description: 'Various implementations authentication',
+    links: [
+      {
+        label: 'GITHUB',
+        url: 'https://github.com/GregKluska/RecyclerViewImplementation',
+        title: 'Link to the website',
+        alt: 'CCMedia website',
+      },
+    ],
+    image: 'project_placeholder',
+  },
+  {
+    id: 4,
     name: 'Personal portfolio',
     shortDescription: 'Various implementations authentication',
     description: 'Various implementations authentication',

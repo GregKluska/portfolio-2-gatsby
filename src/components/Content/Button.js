@@ -3,7 +3,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-const ButtonCss = css`
+export const ButtonCss = css`
   background: ${({ theme }) => theme.colors.primary};
   color: white;
 
